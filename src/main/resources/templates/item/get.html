@@ -1,0 +1,35 @@
+<style>
+    .item_img{
+        width:80px;
+    }
+</style>
+<div class="container">
+    <div class="col-sm-10">
+    <h2>🎁Item List🎁</h2>
+    <p>Customer Information List</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>IMG</th>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>RDATE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i:${ilist}">
+            <td>
+                <a href="">
+                    <img th:src="'/img/'+${i.imgname}" class="item_img">
+                </a>
+            </td>
+            <td th:text="${i.id}"></td>
+            <td th:text="${i.name}"></td>
+            <td th:text="${i.price}"></td>
+            <td th:text="${i.rdate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

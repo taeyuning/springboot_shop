@@ -1,0 +1,62 @@
+<script>
+    $(document).ready(function(){
+        $('#update_btn').click(function(){
+            $('#register_form').attr(
+                {
+                    'action':'[[@{/mall/updateimpl}]]',
+                    'method':'post'
+                }
+            );
+            $('#register_form').submit();
+        });
+
+        $('#delete_btn').click(function(){
+            id = $('#id').val();
+            var c =confirm('삭제하시겠습니까?');
+            if (c == true){
+                location.href='/mall/deleteimpl?id='+id;
+            }
+        });
+    });
+</script>
+<div class="container">
+    <div class="col-sm-5">
+        <h2>🎁Item Detail🎁</h2>
+        <form id="register_form">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" class="form-control" id="id" th:value="${dmall.id}" name="id" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="name" th:value="${dmall.name}" name="name">
+            </div>
+            <div class="form-group">
+                <label for="Name">Imgname:</label>
+                <input type="text" class="form-control" id="imgname" th:value="${dmall.imgname}" name="imgname">
+            </div>
+            <div class="form-group">
+                <label for="admin">admin:</label>
+                <input type="text" class="form-control" id="admin" th:value="${dmall.admin}" name="admin">
+            </div>
+            <div class="form-group">
+                <label for="number">number:</label>
+                <input type="number" class="form-control" id="number" th:value="${dmall.number}" name="number">
+            </div>
+            <div class="form-group">
+                <label for="address">address:</label>
+                <input type="text" class="form-control" id="address" th:value="${dmall.address}" name="address">
+            </div>
+            <div class="form-group">
+                <label for="address">opentime:</label>
+                <input type="time" class="form-control" id="opentime" th:value="${dmall.opentime}" name="opentime">
+            </div>
+            <div class="form-group">
+                <label for="address">closetime:</label>
+                <input type="time" class="form-control" id="closetime" th:value="${dmall.closetime}" name="closetime">
+            </div>
+        </form>
+        <button id="update_btn" class="btn btn-default">UPDATE</button>
+        <button id="delete_btn" class="btn btn-default">DELETE</button>
+    </div>
+</div>

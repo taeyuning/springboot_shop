@@ -1,0 +1,41 @@
+<style>
+    .mall_img{
+        width:80px;
+    }
+</style>
+<div class="container">
+    <div class="col-sm-10">
+    <h2>🏪Mall List🏪</h2>
+    <p>Mall Information List</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>IMG</th>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ADMIN</th>
+            <th>NUMBER</th>
+            <th>ADDRESS</th>
+            <th>OPEN TIME</th>
+            <th>CLOSE TIME</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m:${mlist}">
+            <td>
+                <a href="">
+                    <img th:src="'/img/'+${m.imgname}" class="mall_img">
+                </a>
+            </td>
+            <td th:text="${m.id}"></td>
+            <td th:text="${m.name}"></td>
+            <td th:text="${m.admin}"></td>
+            <td th:text="${m.number}"></td>
+            <td th:text="${m.address}"></td>
+            <td th:text="${m.opentime}"></td>
+            <td th:text="${m.closetime}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

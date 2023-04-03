@@ -1,0 +1,43 @@
+<script>
+    $(document).ready(function(){
+        $('#update_btn').click(function(){
+            $('#register_form').attr(
+                {
+                    'action':'[[@{/item/updateimpl}]]',
+                    'method':'post'
+                }
+            );
+            $('#register_form').submit();
+        });
+
+        $('#delete_btn').click(function(){
+            id = $('#id').val();
+            var c =confirm('삭제하시겠습니까?');
+            if (c == true){
+                location.href='/item/deleteimpl?id='+id;
+            }
+        });
+    });
+</script>
+<div class="container">
+    <div class="col-sm-5">
+        <h2>🎁Item Detail🎁</h2>
+        <form id="register_form">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" class="form-control" id="id" th:value="${ditem.id}" name="id" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="name" th:value="${ditem.name}" name="name">
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" th:value="${ditem.price}" name="price">
+            </div>
+
+        </form>
+        <button id="update_btn" class="btn btn-default">UPDATE</button>
+        <button id="delete_btn" class="btn btn-default">DELETE</button>
+    </div>
+</div>
