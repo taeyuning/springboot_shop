@@ -1,13 +1,19 @@
+<style>
+    .item_img{
+        width:100px;
+    }
+</style>
 <script>
     $(document).ready(function(){
         $('#update_btn').click(function(){
-            $('#register_form').attr(
+            $('#update_form').attr(
                 {
+                    'enctype': 'multipart/form-data',
                     'action':'[[@{/item/updateimpl}]]',
                     'method':'post'
                 }
             );
-            $('#register_form').submit();
+            $('#update_form').submit();
         });
 
         $('#delete_btn').click(function(){
@@ -22,7 +28,18 @@
 <div class="container">
     <div class="col-sm-5">
         <h2>🎁Item Detail🎁</h2>
-        <form id="register_form">
+        <form id="update_form">
+            <div class="form-group">
+                <!-- 기존이미지, 새로운 이미지 존재X-->
+                <label for="imgname">BEFORE IMG:</label>
+                <img class="item_img" th:src="@{|/img/${ditem.imgname}|}">
+                <input id="imgname"  type="hidden" name="imgname" th:value="${ditem.imgname}">
+            </div>
+                 <!--새로운 이미지, 기존이미지, 새로운 이미지 존재O-->
+            <div class="form-group">
+                <label for="img">NEW IMG:</label>
+                <input type="file" class="form-control" id="img" th:value="${ditem.img}" name="img">
+            </div>
             <div class="form-group">
                 <label for="id">ID:</label>
                 <input type="text" class="form-control" id="id" th:value="${ditem.id}" name="id" readonly>
@@ -35,7 +52,6 @@
                 <label for="price">Price:</label>
                 <input type="number" class="form-control" id="price" th:value="${ditem.price}" name="price">
             </div>
-
         </form>
         <button id="update_btn" class="btn btn-default">UPDATE</button>
         <button id="delete_btn" class="btn btn-default">DELETE</button>

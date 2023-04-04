@@ -15,6 +15,7 @@
             <th>NAME</th>
             <th>PRICE</th>
             <th>RDATE</th>
+            <th>CART</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,10 @@
             <td th:text="${item.name}"></td>
             <td th:text="${item.price}"></td>
             <td th:text="${item.rdate}"></td>
+            <!--카트넣기~-->
+            <td>
+                <a href="#" class="btn btn-info" role="button">ADD CART</a>
+            </td>
         </tr>
         </tbody>
     </table>

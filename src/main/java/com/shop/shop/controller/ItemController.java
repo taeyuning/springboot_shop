@@ -1,7 +1,6 @@
 package com.shop.shop.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.shop.shop.dto.CustDTO;
 import com.shop.shop.dto.ItemDTO;
 import com.shop.shop.service.ItemService;
 import com.shop.shop.util.FileUploadUtil;
@@ -38,6 +37,7 @@ public class ItemController {
     model.addAttribute("center", dir+"add");
     return "main";
   }
+
   @RequestMapping("/get")
   public String get(Model model){ //left 와 center 영역만 바꿔줌
     model.addAttribute("left",dir+"left"); //item의 left html
@@ -51,6 +51,7 @@ public class ItemController {
     }
     return "main";
   }
+
   @GetMapping("/getpage")
   public String getpage(@RequestParam(required = false, defaultValue = "1") int pageNum, Model model) throws Exception {
     PageInfo<ItemDTO> p = new PageInfo<>(itemService.getPage(pageNum), 5);
@@ -74,8 +75,9 @@ public class ItemController {
     }
     return "redirect:/item/getpage";
   }
+
   @RequestMapping("/detail")
-  public String detail(Model model, Integer id){
+  public String detail(Model model, int id){
     model.addAttribute("left", dir+"left");
     model.addAttribute("center", dir+"detail");
     ItemDTO obj = null;
@@ -87,20 +89,24 @@ public class ItemController {
     }
     return "main";
   }
+
   @RequestMapping("/updateimpl")
-  public String updateimpl(Model model, ItemDTO item) {
-    try {
-      itemService.modify(item);
-    } catch (Exception e) {
-      throw new RuntimeException(e);
+  public String updateimpl(Model model, ItemDTO obj) throws Exception {
+      //기존 이미지로 업데이트
+    if(obj.getImg().getOriginalFilename().equals("")) {
+      itemService.modify(obj);
+    } else {
+      //새로운 이름으로 업데이트
+      String newimgname = obj.getImg().getOriginalFilename();
+      FileUploadUtil.saveFile(obj.getImg(), custdir);
+      obj.setImgname(newimgname);
+      itemService.modify(obj);
     }
-    model.addAttribute("left", dir+"left");
-    model.addAttribute("center", dir+"add");
-    return "redirect:/item/detail?id="+item.getId();
+    return "redirect:/item/detail?id="+obj.getId();
   }
 
   @RequestMapping("/deleteimpl")
-  public String deleteimpl(Model model, Integer id) {
+  public String deleteimpl(Model model, int id) {
     try {
       itemService.remove(id);
     } catch (Exception e) {
