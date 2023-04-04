@@ -1,8 +1,14 @@
+<style>
+    .mall_img{
+        width:300px;
+    }
+</style>
 <script>
     $(document).ready(function(){
         $('#update_btn').click(function(){
             $('#register_form').attr(
                 {
+                    'enctype': 'multipart/form-data',
                     'action':'[[@{/mall/updateimpl}]]',
                     'method':'post'
                 }
@@ -14,16 +20,29 @@
             id = $('#id').val();
             var c =confirm('삭제하시겠습니까?');
             if (c == true){
+                var id = $('#id').val();
                 location.href='/mall/deleteimpl?id='+id;
             }
         });
     });
 </script>
+
 <div class="container">
     <div class="col-sm-5">
-        <h2>🎁Item Detail🎁</h2>
+        <h2>🔎Mall Detail🔎</h2>
         <form id="register_form">
             <div class="form-group">
+                <div class="form-group">
+                    <!-- 기존이미지, 새로운 이미지 존재X-->
+                    <label for="imgname">BEFORE IMG:</label>
+                    <img class="mall_img" th:src="@{|/img/${dmall.imgname}|}">
+                    <input id="imgname"  type="hidden" name="imgname" th:value="${dmall.imgname}">
+                </div>
+                <!--새로운 이미지, 기존이미지, 새로운 이미지 존재O-->
+                <div class="form-group">
+                    <label for="img">NEW IMG:</label>
+                    <input type="file" class="form-control" id="img" th:value="${dmall.img}" name="img">
+                </div>
                 <label for="id">ID:</label>
                 <input type="text" class="form-control" id="id" th:value="${dmall.id}" name="id" readonly>
             </div>
@@ -31,10 +50,7 @@
                 <label for="Name">Name:</label>
                 <input type="text" class="form-control" id="name" th:value="${dmall.name}" name="name">
             </div>
-            <div class="form-group">
-                <label for="Name">Imgname:</label>
-                <input type="text" class="form-control" id="imgname" th:value="${dmall.imgname}" name="imgname">
-            </div>
+
             <div class="form-group">
                 <label for="admin">admin:</label>
                 <input type="text" class="form-control" id="admin" th:value="${dmall.admin}" name="admin">

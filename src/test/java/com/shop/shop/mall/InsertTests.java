@@ -14,7 +14,7 @@ class InsertTests {
 	MallService Service;
 	@Test
 	void contextLoads() {
-		MallDTO obj = new MallDTO(null,"민지버거샵","민지공듀",300000,"우리집","06:00:00","20:00:00","mall05.jpg",null);
+		MallDTO obj = new MallDTO(null,"민지버거샵","민지공듀","011515745","우리집","06:00:00","20:00:00","mall05.jpg",null);
 		try {
 			Service.register(obj);
 		} catch (Exception e) {

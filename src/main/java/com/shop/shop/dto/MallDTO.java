@@ -15,7 +15,7 @@ public class MallDTO {
   private Long id;
   private String name;
   private String admin;
-  private Integer number;
+  private String number;
   private String address;
   private String opentime;
   private String closetime;

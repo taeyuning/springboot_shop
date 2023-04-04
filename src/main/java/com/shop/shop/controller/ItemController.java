@@ -102,7 +102,7 @@ public class ItemController {
       obj.setImgname(newimgname);
       itemService.modify(obj);
     }
-    return "redirect:/item/detail?id="+obj.getId();
+    return "redirect:detail?id="+obj.getId();
   }
 
   @RequestMapping("/deleteimpl")
@@ -114,6 +114,7 @@ public class ItemController {
     }
     model.addAttribute("left", dir+"left");
     model.addAttribute("center", dir+"add");
-    return "redirect:/item/getpage";
+    return "redirect:getpage";
+//   /getpage라고 하면 item getpage로 안간다ㅏㅏㅏㅏㅏㅏㅏ
   }
 }

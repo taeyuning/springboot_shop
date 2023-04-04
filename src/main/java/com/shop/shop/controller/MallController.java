@@ -87,15 +87,18 @@ public class MallController {
     return "main";
   }
   @RequestMapping("/updateimpl")
-  public String updateimpl(Model model, MallDTO mall) {
-    try {
-      mallService.modify(mall);
-    } catch (Exception e) {
-      throw new RuntimeException(e);
+  public String updateimpl(Model model, MallDTO obj) throws Exception {
+    //기존 이미지로 업데이트
+    if(obj.getImg().getOriginalFilename().equals("")) {
+      mallService.modify(obj);
+    } else {
+      //새로운 이름으로 업데이트
+      String newimgname = obj.getImg().getOriginalFilename();
+      FileUploadUtil.saveFile(obj.getImg(), custdir);
+      obj.setImgname(newimgname);
+      mallService.modify(obj);
     }
-    model.addAttribute("left", dir+"left");
-    model.addAttribute("center", dir+"add");
-    return "redirect:/mall/detail?id="+mall.getId();
+    return "redirect:/mall/detail?id="+obj.getId();
   }
 
   @RequestMapping("/deleteimpl")

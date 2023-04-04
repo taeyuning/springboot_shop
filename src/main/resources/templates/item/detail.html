@@ -6,6 +6,7 @@
 <script>
     $(document).ready(function(){
         $('#update_btn').click(function(){
+            //form으로 전송
             $('#update_form').attr(
                 {
                     'enctype': 'multipart/form-data',
@@ -15,11 +16,12 @@
             );
             $('#update_form').submit();
         });
-
+        //url로 전송
         $('#delete_btn').click(function(){
             id = $('#id').val();
             var c =confirm('삭제하시겠습니까?');
             if (c == true){
+                var id = $('#id').val();
                 location.href='/item/deleteimpl?id='+id;
             }
         });
@@ -27,7 +29,7 @@
 </script>
 <div class="container">
     <div class="col-sm-5">
-        <h2>🎁Item Detail🎁</h2>
+        <h2>🎀Item Detail🎀</h2>
         <form id="update_form">
             <div class="form-group">
                 <!-- 기존이미지, 새로운 이미지 존재X-->
