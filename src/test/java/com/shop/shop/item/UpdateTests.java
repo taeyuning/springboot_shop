@@ -12,7 +12,7 @@ class UpdateTests {
 	ItemService Service;
 	@Test
 	void contextLoads() {
-		ItemDTO obj = new ItemDTO(113,"후드티",3000000,"h.jpg",null,null);
+		ItemDTO obj = new ItemDTO(113,"후드티",3000000,"mall01.jpg",null,null);
 		try {
 			Service.modify(obj);
 		} catch (Exception e) {

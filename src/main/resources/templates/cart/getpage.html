@@ -1,13 +1,25 @@
+<script>
+   function delcart(did){
+     var c = confirm("😭삭제 하시겠습니까?😭");
+     if(c == true){
+         location.href='/cart/deleteimpl?id='+did+'&cid=[[${session.logincust.id}]]';
+     }
+ }
+</script>
 
 <style>
     .item_img{
         width:80px;
     }
 </style>
+
 <div class="container">
     <div class="col-sm-10">
     <h2>🛒Cart List🛒</h2>
     <p>My Cart List</p>
+        <h3 th:text="'💵합계:'+${#aggregates.sum(items.getList().![item_price * cnt])}+'원'"></h3>
+        <h3 th:text="'🧾총 합계:'+${#aggregates.sum(mycarts.![item_price * cnt])}+'원'"></h3>
+<!--        <h3 th:text="'합계:'+${#aggregates.sum(mycarts.getList().![item_price * cnt])} * ${#aggregates.sum(mycarts.getList().![cnt])}"></h3>-->
     <table class="table table-striped">
         <thead>
         <tr>
@@ -16,21 +28,30 @@
             <th>ITME_NAME</th>
             <th>ITEM_PRICE</th>
             <th>COUNT</th>
+            <th>TOTAL</th>
             <th>RDATE</th>
+            <th>DELETE</th>
         </tr>
         </thead>
         <tbody>
+<!--i는 itemDTO-->
         <tr th:each="i:${items.getList()}">
             <td>
                 <a href="">
-                    <img class="item_img" th:src="'/img/'+${i.item_imgname}" >
+                    <img class="item_img" th:src="'/img/'+${i.item_imgname}">
                 </a>
             </td>
             <td th:text="${i.id}"></td>
             <td th:text="${i.item_name}"></td>
             <td th:text="${i.item_price}"></td>
             <td th:text="${i.cnt}"></td>
-            <td th:text="${i.rdate}"></td>
+            <td th:text="${i.item_price} * ${i.cnt}"></td>
+            <td th:text="${i.#dates.format(i.rdate,'yyyy-MM-dd')}"></td>
+            <td>
+                <button type="button" class="btn btn-warning"
+                  th:onclick="delcart([[${i.id}]]);">DELETE</button>
+<!--                <a th:href="@{/cart/delete(id=${i.id})}" class="btn btn-info" role="button" id="delete_btn">DELETE</a>-->
+            </td>
         </tr>
         </tbody>
     </table>

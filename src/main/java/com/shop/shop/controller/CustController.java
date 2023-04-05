@@ -25,12 +25,14 @@ public class CustController {
     model.addAttribute("center", dir+"center");
     return "main";
   }
+
   @RequestMapping("/add")
   public String add(Model model) {
     model.addAttribute("left", dir+"left");
     model.addAttribute("center", dir+"add");
     return "main";
   }
+
   @RequestMapping("/addimpl")
   public String addimpl(Model model, CustDTO cust) {
     try {
@@ -42,20 +44,7 @@ public class CustController {
     model.addAttribute("center", dir+"add");
     return "redirect:/cust/getpage";
   }
-  @RequestMapping("/get")
-  public String get(Model model){ //left 와 center 영역만 바꿔줌
-    model.addAttribute("left",dir+"left"); //cust의 left html
-    model.addAttribute("center",dir+"get");
-    List<CustDTO> list = null;
-    try {
-      list = custService.get();
-      model.addAttribute("clist",list);
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
 
-    return "main";
-  }
   @GetMapping("/getpage")
   public String getpage(@RequestParam(required = false, defaultValue = "1") int pageNum, Model model) throws Exception {
     PageInfo<CustDTO> p = new PageInfo<>(custService.getPage(pageNum), 8);
@@ -64,6 +53,7 @@ public class CustController {
     model.addAttribute("center", dir+"getpage");
     return "/main";
   }
+
   @RequestMapping("/detail")
   public String detail(Model model, String id){
     model.addAttribute("left", dir+"left");
@@ -77,6 +67,7 @@ public class CustController {
     }
     return "main";
   }
+
   @RequestMapping("/updateimpl")
   public String updateimpl(Model model, CustDTO cust) {
     try {
@@ -101,3 +92,17 @@ public class CustController {
     return "redirect:/cust/getpage";
   }
 }
+  //  @RequestMapping("/get")
+//  public String get(Model model){ //left 와 center 영역만 바꿔줌
+//    model.addAttribute("left",dir+"left"); //cust의 left html
+//    model.addAttribute("center",dir+"get");
+//    List<CustDTO> list = null;
+//    try {
+//      list = custService.get();
+//      model.addAttribute("clist",list);
+//    } catch (Exception e) {
+//      throw new RuntimeException(e);
+//    }
+//
+//    return "main";
+//  }

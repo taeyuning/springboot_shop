@@ -38,20 +38,6 @@ public class ItemController {
     return "main";
   }
 
-  @RequestMapping("/get")
-  public String get(Model model){ //left 와 center 영역만 바꿔줌
-    model.addAttribute("left",dir+"left"); //item의 left html
-    model.addAttribute("center",dir+"get");
-    List<ItemDTO> list = null;
-    try {
-      list = itemService.get();
-      model.addAttribute("ilist",list);
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
-    return "main";
-  }
-
   @GetMapping("/getpage")
   public String getpage(@RequestParam(required = false, defaultValue = "1") int pageNum, Model model) throws Exception {
     PageInfo<ItemDTO> p = new PageInfo<>(itemService.getPage(pageNum), 5);
@@ -74,6 +60,20 @@ public class ItemController {
       e.printStackTrace();
     }
     return "redirect:/item/getpage";
+  }
+
+  @RequestMapping("/addcart")
+  public String addcart(Model model, int id){
+    ItemDTO obj = null;
+    try {
+      obj = itemService.get(id);
+      model.addAttribute("ditem",obj);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+    model.addAttribute("left", dir+"left");
+    model.addAttribute("center", dir+"addcart");
+    return "main";
   }
 
   @RequestMapping("/detail")
@@ -118,3 +118,18 @@ public class ItemController {
 //   /getpage라고 하면 item getpage로 안간다ㅏㅏㅏㅏㅏㅏㅏ
   }
 }
+
+
+//  @RequestMapping("/get")
+//  public String get(Model model){ //left 와 center 영역만 바꿔줌
+//    model.addAttribute("left",dir+"left"); //item의 left html
+//    model.addAttribute("center",dir+"get");
+//    List<ItemDTO> list = null;
+//    try {
+//      list = itemService.get();
+//      model.addAttribute("ilist",list);
+//    } catch (Exception e) {
+//      throw new RuntimeException(e);
+//    }
+//    return "main";
+//  }

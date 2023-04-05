@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Bootstrap Example</title>
+    <title>SHOP</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91695752c68278f5511a4292cdd98f33"></script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
@@ -15,7 +16,7 @@
         }
 
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {height: 600px}
+        .row.content {height: 1000px}
 
         /* Set gray background color and 100% height */
         .sidenav {
@@ -73,6 +74,8 @@
                 <li><a th:href="@{/cust}">Cust</a></li>
                 <li><a th:href="@{/item}">Item</a></li>
                 <li><a th:href="@{/mall}">Mall</a></li>
+                <li><a th:href="@{/map1}">Map1</a></li>
+                <li><a th:href="@{/map2}">Map2</a></li>
                  <!--로그인 안하면 카트 x-->
                 <li th:if="${session.logincust != null}">
                     <!--<a th:href="@{/cart}">Cart</a></li>-->
@@ -106,10 +109,10 @@
 
         <div class="col-sm-2 sidenav">
             <div class="well">
-                <p>ADS</p>
+                <p>🐸ADS🐸</p>
             </div>
             <div class="well">
-                <p>ADS</p>
+                <p>🐳ADS🐳</p>
             </div>
         </div>
     </div>
@@ -130,12 +133,12 @@
                 <form id="login_form">
                     <div class="form-group">
                         <label for="id">ID:</label>
-                        <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
+                        <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id" value="id01">
                         <span id="span"></span>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" value="pwd01" >
                     </div>
                     <button class="btn btn-default">LOGIN</button>
                 </form>

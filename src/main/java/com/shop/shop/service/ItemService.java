@@ -43,7 +43,7 @@ public class ItemService implements MyService<Integer, ItemDTO> {
     return itemMapper.search(txt);
   }
   public Page<ItemDTO> getPage(int pageNo) throws Exception {
-    PageHelper.startPage(pageNo, 3);
+    PageHelper.startPage(pageNo, 4);
     return itemMapper.getPage();
   }
 }
