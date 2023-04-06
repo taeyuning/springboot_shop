@@ -22,7 +22,7 @@
         <tr th:each="item : ${items.getList()}">
           <td>
                 <a th:href="@{/item/detail(id=${item.id})}">
-                    <img class="item_img" th:src="@{|/img/${item.imgname}|}">
+                    <img class="item_img" th:src="@{/img/}+${item.imgname}">
                 </a>
             </td>
             <td th:text="${item.id}"></td>

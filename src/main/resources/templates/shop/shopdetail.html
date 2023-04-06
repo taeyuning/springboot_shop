@@ -1,0 +1,16 @@
+<!--<style>-->
+<!--    .shop_img{-->
+<!--        width:150px;-->
+<!--    }-->
+<!--</style>-->
+<div class="container">
+    <div class="col-sm-5">
+        <h1></h1>
+
+        <img th:src="|/img/${shop.imgname}|">
+        <h4 th:text="${shop.name}"></h4>
+        <h4 th:text="${shop.address}"></h4>
+        <h4 th:text="${shop.number}"></h4>
+        <h4 th:text="|${shop.opentime} ~ ${shop.closetime}|"></h4>
+    </div>
+</div>
