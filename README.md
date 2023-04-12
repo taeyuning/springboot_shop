@@ -56,8 +56,8 @@
 
 
 ## 🔧프로젝트 구조🔧
-<img height="500" alt="프로젝트구조1" src="https://github.com/taeyuning/springboot_shop/blob/main/231098670-c31fe731-c9bf-4a22-bcd2-79b5b7236f9a.png">
-<img height="500" alt="프로젝트구조2" src="https://github.com/taeyuning/springboot_shop/blob/main/231099509-6852670f-115d-4614-87e0-2bfcd3b58dfc.png">
+<img height="350" alt="프로젝트구조1" src="https://github.com/taeyuning/springboot_shop/blob/main/231098670-c31fe731-c9bf-4a22-bcd2-79b5b7236f9a.png">
+<img height="350" alt="프로젝트구조2" src="https://github.com/taeyuning/springboot_shop/blob/main/231099509-6852670f-115d-4614-87e0-2bfcd3b58dfc.png">
 
 
 # javaws   
