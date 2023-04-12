@@ -50,7 +50,7 @@
 - CLOVA Chatbot 
 
 
-##📁 파일 구조📁   
+## 📁 파일 구조📁   
 
 ![image](https://user-images.githubusercontent.com/124324104/231106506-ecd08dad-dfcf-44b1-83bc-4867d1985ea8.png)
 
