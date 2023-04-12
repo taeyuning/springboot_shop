@@ -21,18 +21,21 @@
 🎈Cust , Item, Mall
 - add : 등록
 - getpage : 목록, 수정  
+  
 🎈 Map1  
 - kakomap : 가게 위치 확인  
+
 🎈OCR   
 -  사업자등록증   : 법인명, 등록번호  
+
 🎈OCR 2
-- 카드 : 카드번호, 유효기간, 이름
+- 카드 : 카드번호, 유효기간, 이름  
 
 🎈 WEATHER   
-- 지역별 오늘 날씨
+- 지역별 오늘 날씨  
 
 🎈Cart   
-- 장바구니 기능   
+- 장바구니 기능     
 
 🎈 Chat   
 - send all, send me, send to (admin)  
@@ -50,7 +53,6 @@
 ## 📁 파일 구조📁   
 
 <img height="500" alt="파일구조" src="https://github.com/taeyuning/springboot_shop/blob/main/231106506-ecd08dad-dfcf-44b1-83bc-4867d1985ea8.png">
-
 
 ## 🔧프로젝트 구조🔧
 <img height="350" alt="프로젝트구조1" src="https://github.com/taeyuning/springboot_shop/blob/main/231098670-c31fe731-c9bf-4a22-bcd2-79b5b7236f9a.png">
