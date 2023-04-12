@@ -52,7 +52,8 @@
 
 ## 📁 파일 구조📁   
 
-![image](https://user-images.githubusercontent.com/124324104/231106506-ecd08dad-dfcf-44b1-83bc-4867d1985ea8.png)
+<img width="500" alt="파일구조" src="https://github.com/taeyuning/springboot_shop/blob/main/231106506-ecd08dad-dfcf-44b1-83bc-4867d1985ea8.png">
+
 
 ## 🔧프로젝트 구조🔧
 ![image](https://user-images.githubusercontent.com/124324104/231098670-c31fe731-c9bf-4a22-bcd2-79b5b7236f9a.png)
