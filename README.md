@@ -1,3 +1,5 @@
+<div align="center">
+
 # 📝Springboot_prac_shop📝
 
 🍒**AI플랫폼 이해와 활용_shop**🍒
@@ -13,6 +15,8 @@
 - CLOVA Face Recognition (CFR)
 - CLOVA Chatbot 
 - Server 
+  
+  </div>
 
 ## 🙃주요기능🙂
 
