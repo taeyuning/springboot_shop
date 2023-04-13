@@ -1,4 +1,4 @@
-<div align="center">
+
 
 # 📝Springboot_prac_shop📝
 
@@ -16,7 +16,7 @@
 - CLOVA Chatbot 
 - Server 
   
-  </div>
+
 
 ## 🙃주요기능🙂
 
